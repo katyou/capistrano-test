@@ -60,10 +60,10 @@
 #     # password: "please use keys"
 #   }
 
-server 'hogehoge.katyou.net', user: 'deploy', roles: %w{app db web}
+server 'ec2-52-68-50-217.ap-northeast-1.compute.amazonaws.com', user: 'deploy', roles: %w{app db web}
 
 set :ssh_options, {
-  keys: %w(/home/deploy/.ssh/ijgn-common.pem),
+  keys: %w(/Users/katyou/.ssh/ijgn-common.pem),
   forward_agent: true,
   auth_methods: %w(publickey)
 }
