@@ -63,7 +63,7 @@
 server 'hoge.katyou.net', user: 'deploy', roles: %w{app db web}
 
 set :ssh_options, {
-  keys: %w(/home/deploy/.ssh/id_rsa),
+  keys: %w(/home/deploy/.ssh/ijgn-common.pem),
   forward_agent: true,
   auth_methods: %w(publickey)
 }
