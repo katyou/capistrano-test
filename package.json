@@ -1,0 +1,5 @@
+{
+  "name": "capistrano-test",
+  "private": true,
+  "dependencies": {}
+}
