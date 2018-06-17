@@ -44,7 +44,7 @@ set :puma_preload_app, true
 set :puma_worker_timeout, nil
 set :puma_init_active_record, true  # Change to false when not using ActiveRecord
 # Default value for linked_dirs is []
-append :linked_dirs, "log", "tmp/pids", "tmp/cache", "tmp/sockets", "public/system"
+append :linked_dirs, "log ", "tmp/pids", "tmp/cache", "tmp/sockets", "public/system"
 
 
 namespace :puma do
@@ -56,7 +56,7 @@ namespace :puma do
     end
   end
 
-  # before :start, :make_dirs
+  before :start, :make_dirs
 end
 
 namespace :deploy do
