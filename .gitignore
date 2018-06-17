@@ -19,3 +19,6 @@
 .byebug_history
 
 /vendor/bundle/ruby/
+
+!/tmp/pid/.keep
+!/tmp/sockets/.keep
