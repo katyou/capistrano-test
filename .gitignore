@@ -21,3 +21,6 @@
 
 !/tmp/pid/.keep
 !/tmp/sockets/.keep
+
+# Ignore encrypted secrets key file.
+config/secrets.yml.key
