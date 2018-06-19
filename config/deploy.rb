@@ -55,8 +55,7 @@ namespace :puma do
       execute "mkdir #{shared_path}/tmp/pids -p"
     end
   end
-
-  # before :start, :make_dirs
+  before :start, :make_dirs
 end
 
 namespace :deploy do
@@ -73,17 +72,25 @@ namespace :deploy do
     end
   end
 
+  desc 'Restart application'
+  task :restart do
+    on roles(:app), in: :sequence, wait: 5 do
+      Rake::Task["puma:restart"].reenable
+      invoke 'puma:restart'
+    end
+  end
+
   desc 'Initial Deploy'
   task :initial do
     on roles(:app) do
-      before 'deploy:restart', 'puma:start'
+      # before 'deploy:restart', 'puma:start'
       invoke 'deploy'
     end
   end
 
   before :starting,     :confirm
-  after  :finishing,    :compile_assets
-  after  :finishing,    :cleanup
+  # after  :finishing,    :compile_assets
+  # after  :finishing,    :cleanup
 
 end
 

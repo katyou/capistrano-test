@@ -3,6 +3,10 @@ require "capistrano/setup"
 
 # Include default deployment tasks
 require "capistrano/deploy"
+require "capistrano/puma"
+install_plugin Capistrano::Puma::Nginx  # if you want to upload a nginx site template
+install_plugin Capistrano::Puma, load_hooks: false  # Default puma tasks without hooks
+install_plugin Capistrano::Puma::Monit, load_hooks: false  # Monit tasks without hooks
 
 # Load the SCM plugin appropriate to your project:
 #
@@ -12,8 +16,11 @@ require "capistrano/deploy"
 # require "capistrano/scm/svn"
 # install_plugin Capistrano::SCM::Svn
 # or
+require 'capistrano/rails'
+
 require "capistrano/scm/git"
 install_plugin Capistrano::SCM::Git
+install_plugin Capistrano::Puma
 
 # Include tasks from other gems included in your Gemfile
 #
@@ -30,7 +37,7 @@ install_plugin Capistrano::SCM::Git
 require "capistrano/rbenv"
 # require "capistrano/chruby"
 require "capistrano/bundler"
-require 'capistrano/puma'
+
 require "capistrano/rails/assets"
 require "capistrano/rails/migrations"
 # require "capistrano/passenger"
