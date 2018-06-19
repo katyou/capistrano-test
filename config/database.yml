@@ -9,7 +9,7 @@ default: &default
 development:
   <<: *default
   database: cap-test_development #PJごとに名前変える
-  socket: /usr/local/var/mysql.sock
+  socket: /tmp/mysql.sock
 
 
 # Warning: The database defined as "test" will be erased and
@@ -18,7 +18,7 @@ development:
 test:
   <<: *default
   database: cap-test_definition_test #PJごとに名前変える
-  socket: /usr/local/var/mysql.sock
+  socket: /tmp/mysql.sock
 
 # As with config/secrets.yml, you never want to store sensitive information,
 # like your database password, in your source code. If your source code is
