@@ -39,7 +39,9 @@ environment ENV.fetch("RAILS_ENV") { "production" }
 # before_fork do
 #   ActiveRecord::Base.connection_pool.disconnect! if defined?(ActiveRecord)
 # end
-bind "unix:///var/www/capistrano-test/current/tmp/sockets/myapp-puma.sock"
+if ENV['RAILS_ENV'] == 'production'
+  bind "unix:///var/www/capistrano-test/current/tmp/sockets/myapp-puma.sock"
+end
 # The code in the `on_worker_boot` will be called if you are using
 # clustered mode by specifying a number of `workers`. After each worker
 # process is booted, this block will be run. If you are using the `preload_app!`
