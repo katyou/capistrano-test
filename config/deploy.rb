@@ -29,8 +29,6 @@ set :rbenv_custom_path, '/usr/local/rbenv'
 # Default value for :linked_files is []
 # append :linked_files, "config/database.yml"
 
-append :linked_files, "/var/www/secrets.yml.key"
-
 set :puma_bind,       "unix://#{shared_path}/tmp/sockets/#{fetch(:application)}-puma.sock"
 set :puma_state,      "#{shared_path}/tmp/pids/puma.state"
 set :puma_pid,        "#{shared_path}/tmp/pids/puma.pid"
