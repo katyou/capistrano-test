@@ -59,7 +59,7 @@ namespace :puma do
 end
 
 namespace :deploy do
-  desc "Make sure local git is in sync with remote."
+  desc "ローカルのgitがリモートと同期していることを確認してください"
   task :confirm do
     on roles(:app) do
       puts "This stage is '#{fetch(:stage)}'. Deploying branch is '#{fetch(:branch)}'."
